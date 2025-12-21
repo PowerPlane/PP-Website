@@ -1,0 +1,309 @@
+/* Power Plane — Handcrafted Aesthetic */
+
+:root {
+  --ink: #2c2c2c;
+  --paper: #f9f7f3;
+  --pencil: #5a5a5a;
+  --highlight: #e8dfd0;
+  --accent: #7a9e7e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture overlay */
+.paper-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.1) 2px,
+      rgba(0,0,0,0.1) 4px
+    );
+  z-index: 1000;
+}
+
+/* Layout */
+header, main, footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+header {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+
+.paper-airplane {
+  width: 120px;
+  height: 80px;
+  color: var(--ink);
+  transition: transform 0.5s ease;
+}
+
+.paper-airplane:hover {
+  transform: translateX(10px) translateY(-5px) rotate(-3deg);
+}
+
+.title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+/* Sections */
+section {
+  margin-bottom: 3.5rem;
+}
+
+h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.2;
+  transform: rotate(-0.5deg);
+}
+
+/* Intro handwritten note */
+.intro {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.handwritten-note {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--pencil);
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+}
+
+.handwritten-note::before {
+  content: '"';
+  position: absolute;
+  left: -0.5rem;
+  top: 0;
+  font-size: 3rem;
+  opacity: 0.2;
+}
+
+/* About */
+.about p {
+  margin-bottom: 1rem;
+}
+
+.about em {
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
+  padding: 0 2px;
+}
+
+/* Services */
+.service-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.service-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.bullet {
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Philosophy sketch box */
+.sketch-box {
+  border: 1px dashed var(--pencil);
+  padding: 2rem;
+  position: relative;
+  background: rgba(255,255,255,0.5);
+  transform: rotate(-0.3deg);
+}
+
+.sketch-box::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: 20px;
+  width: 40px;
+  height: 15px;
+  background: var(--highlight);
+  transform: rotate(2deg);
+  opacity: 0.8;
+}
+
+.sketch-text {
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.highlight {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--ink);
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.contact p {
+  margin-bottom: 1.5rem;
+  color: var(--pencil);
+}
+
+.email-link {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.email-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.email-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Footer */
+footer {
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.circuit-doodle {
+  width: 200px;
+  height: 30px;
+  color: var(--pencil);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: var(--pencil);
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  header {
+    padding-top: 2.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .handwritten-note {
+    font-size: 1.3rem;
+  }
+
+  .sketch-box {
+    padding: 1.5rem;
+  }
+}
+
+/* Subtle animation for the airplane */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.paper-airplane {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Selection color */
+::selection {
+  background: var(--highlight);
+}

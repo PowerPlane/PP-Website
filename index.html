@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Plane, LLC — Grounded in Craft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="paper-texture"></div>
+
+  <header>
+    <div class="logo">
+      <svg class="paper-airplane" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+        <!-- Paper airplane with fold lines -->
+        <path class="plane-body" d="M10 40 L110 35 L60 55 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path class="plane-wing" d="M10 40 L110 35 L55 45 L10 40" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path class="fold-line" d="M60 55 L55 45" stroke="currentColor" stroke-width="1" stroke-dasharray="3,2"/>
+        <path class="fold-line" d="M10 40 L55 45" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2,2" opacity="0.6"/>
+        <!-- Ground plane reference line -->
+        <line class="ground-line" x1="5" y1="65" x2="115" y2="65" stroke="currentColor" stroke-width="0.5" stroke-dasharray="8,4"/>
+        <text x="60" y="75" text-anchor="middle" font-size="6" fill="currentColor" opacity="0.7">ground plane</text>
+      </svg>
+    </div>
+    <h1 class="title">Power Plane</h1>
+    <p class="tagline">a collaborative electronics practice</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="handwritten-note">
+        <p>We're grounded in craft,</p>
+        <p>but we like to think our ideas fly.</p>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>What We Do</h2>
+      <p>
+        Power Plane, LLC designs and prototypes <em>custom electronics</em> and
+        <em>interactive connected devices</em>. We focus on making whimsical tools
+        and connected things for human beings.
+      </p>
+      <p>
+        We provide hardware and firmware development for creative projects,
+        research, and small products.
+      </p>
+    </section>
+
+    <section class="services">
+      <h2>We Can Help With</h2>
+      <ul class="service-list">
+        <li>
+          <span class="bullet">✦</span>
+          <span>Custom circuit design & PCB layout</span>
+        </li>
+        <li>
+          <span class="bullet">✦</span>
+          <span>Embedded firmware development</span>
+        </li>
+        <li>
+          <span class="bullet">✦</span>
+          <span>Interactive installations & prototypes</span>
+        </li>
+        <li>
+          <span class="bullet">✦</span>
+          <span>Connected devices & IoT</span>
+        </li>
+        <li>
+          <span class="bullet">✦</span>
+          <span>Bringing weird ideas to life</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="philosophy">
+      <div class="sketch-box">
+        <p class="sketch-text">
+          In electronics, a "ground plane" is the foundation—<br>
+          the reference point everything connects to.<br>
+          <span class="highlight">We like being that kind of grounded.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Let's Make Something</h2>
+      <p>Have a project? A weird idea? Something that needs to blink, beep, or connect to the internet?</p>
+      <a href="mailto:hello@powerplane.studio" class="email-link">hello@powerplane.studio</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="doodle">
+      <svg viewBox="0 0 200 30" class="circuit-doodle">
+        <path d="M0 15 L30 15 L35 5 L45 25 L55 5 L65 25 L70 15 L100 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="100" cy="15" r="3" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M103 15 L130 15 M130 10 L130 20 M133 12 L133 18 M136 14 L136 16" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M140 15 L200 15" fill="none" stroke="currentColor" stroke-width="1"/>
+      </svg>
+    </div>
+    <p class="copyright">Power Plane, LLC — Made by hand, with care</p>
+  </footer>
+</body>
+</html>
