@@ -1,186 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Power Plane, LLC — Grounded in Craft</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="paper-texture"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Plane, LLC — Custom Electronics & Connected Devices</title>
+  <meta name="description" content="Power Plane designs and prototypes custom electronics and interactive connected devices. Hardware and firmware development for creative projects, research, and small products.">
 
-    <header>
-      <div class="logo">
-        <svg
-          class="paper-airplane"
-          viewBox="0 0 120 80"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!-- Paper airplane with fold lines -->
-          <path
-            class="plane-body"
-            d="M10 40 L110 35 L60 55 Z"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-          <path
-            class="plane-wing"
-            d="M10 40 L110 35 L55 45 L10 40"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-          <path
-            class="fold-line"
-            d="M60 55 L55 45"
-            stroke="currentColor"
-            stroke-width="1"
-            stroke-dasharray="3,2"
-          />
-          <path
-            class="fold-line"
-            d="M10 40 L55 45"
-            stroke="currentColor"
-            stroke-width="0.75"
-            stroke-dasharray="2,2"
-            opacity="0.6"
-          />
-          <!-- Ground plane reference line -->
-          <line
-            class="ground-line"
-            x1="5"
-            y1="65"
-            x2="115"
-            y2="65"
-            stroke="currentColor"
-            stroke-width="0.5"
-            stroke-dasharray="8,4"
-          />
-          <text
-            x="60"
-            y="75"
-            text-anchor="middle"
-            font-size="6"
-            fill="currentColor"
-            opacity="0.7"
-          >
-            ground plane
-          </text>
-        </svg>
-      </div>
-      <h1 class="title">Power Plane</h1>
-      <p class="tagline">a collaborative electronics practice</p>
-    </header>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <main>
-      <section class="intro">
-        <div class="handwritten-note">
-          <p>We're grounded in craft,</p>
-          <p>but we like to think our ideas fly.</p>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================
+       MAIN DATASHEET FRAME
+       ============================================ -->
+  <main class="datasheet">
+    <div class="frame">
+
+      <!-- HEADER ROW -->
+      <header class="header">
+        <div class="title-block">
+          <h1 class="company-name">POWER PLANE, LLC</h1>
+          <div class="underline"></div>
         </div>
-      </section>
 
-      <section class="about">
-        <h2>What We Do</h2>
-        <p>
-          Power Plane, LLC designs and prototypes
-          <em>custom electronics</em> and
-          <em>interactive connected devices</em>. We focus on making whimsical
-          tools and connected things for human beings.
-        </p>
-        <p>
-          We provide hardware and firmware development for creative projects,
-          research, and small products.
-        </p>
-      </section>
-
-      <section class="services">
-        <h2>We Can Help With</h2>
-        <ul class="service-list">
-          <li>
-            <span class="bullet">✦</span>
-            <span>Custom circuit design & PCB layout</span>
-          </li>
-          <li>
-            <span class="bullet">✦</span>
-            <span>Embedded firmware development</span>
-          </li>
-          <li>
-            <span class="bullet">✦</span>
-            <span>Interactive installations & prototypes</span>
-          </li>
-          <li>
-            <span class="bullet">✦</span>
-            <span>Connected devices & IoT</span>
-          </li>
-          <li>
-            <span class="bullet">✦</span>
-            <span>Bringing weird ideas to life</span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="philosophy">
-        <div class="sketch-box">
-          <p class="sketch-text">
-            In electronics, a "ground plane" is the foundation—<br />
-            the reference point everything connects to.<br />
-            <span class="highlight">We like being that kind of grounded.</span>
-          </p>
+        <!-- LOGO - Replace SVG below to change logo -->
+        <!-- LOGO START -->
+        <div class="logo">
+          <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" aria-label="Power Plane logo">
+            <!-- Paper airplane body -->
+            <path d="M5 30 L70 25 L40 45 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 30 L70 25 L35 35 L5 30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <!-- Fold line -->
+            <path d="M40 45 L35 35" stroke="currentColor" stroke-width="1" stroke-dasharray="2,2"/>
+            <!-- DC Motor coil (hand-drawn style) -->
+            <ellipse cx="58" cy="32" rx="8" ry="5" fill="none" stroke="currentColor" stroke-width="1"/>
+            <path d="M50 32 Q54 28 58 32 Q62 36 66 32" fill="none" stroke="currentColor" stroke-width="0.75"/>
+            <!-- Motor leads -->
+            <line x1="52" y1="36" x2="48" y2="42" stroke="currentColor" stroke-width="1"/>
+            <line x1="64" y1="36" x2="68" y2="42" stroke="currentColor" stroke-width="1"/>
+            <!-- Small + and - symbols -->
+            <text x="46" y="46" font-size="6" fill="currentColor">+</text>
+            <text x="68" y="46" font-size="6" fill="currentColor">−</text>
+          </svg>
         </div>
+        <!-- LOGO END -->
+      </header>
+
+      <!-- DESCRIPTION FIELDS -->
+      <section class="fields">
+
+        <!-- COMPANY INFO - Edit text directly -->
+        <div class="field">
+          <span class="label">DESC</span>
+          <span class="connector">────</span>
+          <span class="value">Custom electronics & connected devices</span>
+        </div>
+
+        <div class="field">
+          <span class="label">TYPE</span>
+          <span class="connector">────</span>
+          <span class="value">Hardware + Firmware development</span>
+        </div>
+
+        <div class="field">
+          <span class="label">FOR</span>
+          <span class="connector">─────</span>
+          <span class="value">Creative projects, research, small products</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TEAM -->
+        <div class="field">
+          <span class="label">TEAM</span>
+          <span class="connector">────</span>
+          <span class="value">David Yang, Shuang Cai</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CONTACT - Edit links directly -->
+        <div class="field">
+          <span class="label">EMAIL</span>
+          <span class="connector">───</span>
+          <a href="mailto:davidyangemail@gmail.com" class="value link">davidyangemail@gmail.com</a>
+        </div>
+
+        <div class="field">
+          <span class="label">IG</span>
+          <span class="connector">──────</span>
+          <span class="value">
+            <a href="https://instagram.com/dav1dyang" class="link" target="_blank" rel="noopener">@dav1dyang</a>
+            <span class="separator">·</span>
+            <a href="https://instagram.com/fkialmostforgot" class="link" target="_blank" rel="noopener">@fkialmostforgot</a>
+          </span>
+        </div>
+
+        <div class="field">
+          <span class="label">LI</span>
+          <span class="connector">──────</span>
+          <a href="https://linkedin.com/in/dav1dyang" class="value link" target="_blank" rel="noopener">/in/dav1dyang</a>
+        </div>
+
       </section>
 
-      <section class="contact">
-        <h2>Let's Make Something</h2>
-        <p>
-          Have a project? A weird idea? Something that needs to blink, beep, or
-          connect to the internet?
-        </p>
-        <a href="mailto:hello@powerplane.studio" class="email-link"
-          >hello@powerplane.studio</a
-        >
-      </section>
-    </main>
+      <!-- FOOTER -->
+      <footer class="footer">
+        <span class="revision">REV 1.0</span>
+        <span class="year">© 2024</span>
+      </footer>
 
-    <footer>
-      <div class="doodle">
-        <svg viewBox="0 0 200 30" class="circuit-doodle">
-          <path
-            d="M0 15 L30 15 L35 5 L45 25 L55 5 L65 25 L70 15 L100 15"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          />
-          <circle
-            cx="100"
-            cy="15"
-            r="3"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          />
-          <path
-            d="M103 15 L130 15 M130 10 L130 20 M133 12 L133 18 M136 14 L136 16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          />
-          <path
-            d="M140 15 L200 15"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          />
-        </svg>
-      </div>
-      <p class="copyright">Power Plane, LLC — Made by hand, with care</p>
-    </footer>
-  </body>
+    </div>
+  </main>
+
+  <!-- ============================================
+       FLYING PLANES - Hidden SVG templates
+       ============================================ -->
+  <div id="plane-templates" style="display: none;">
+
+    <!-- Plane 1: Propeller -->
+    <svg id="plane-propeller" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 15 L40 12 L25 22 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M2 15 L40 12 L22 17 L2 15" fill="none" stroke="currentColor" stroke-width="1"/>
+      <!-- Propeller -->
+      <circle cx="44" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="0.75"/>
+      <line x1="44" y1="6" x2="44" y2="18" stroke="currentColor" stroke-width="1" class="propeller"/>
+    </svg>
+
+    <!-- Plane 2: DC Motor coil -->
+    <svg id="plane-motor" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 15 L40 12 L25 22 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M2 15 L40 12 L22 17 L2 15" fill="none" stroke="currentColor" stroke-width="1"/>
+      <!-- Motor coil -->
+      <ellipse cx="36" cy="16" rx="5" ry="3" fill="none" stroke="currentColor" stroke-width="0.75"/>
+      <path d="M31 16 Q34 13 36 16 Q38 19 41 16" fill="none" stroke="currentColor" stroke-width="0.5"/>
+      <line x1="33" y1="19" x2="31" y2="24" stroke="currentColor" stroke-width="0.75"/>
+      <line x1="39" y1="19" x2="41" y2="24" stroke="currentColor" stroke-width="0.75"/>
+    </svg>
+
+    <!-- Plane 3: Rubber band -->
+    <svg id="plane-rubber" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 15 L40 12 L25 22 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M2 15 L40 12 L22 17 L2 15" fill="none" stroke="currentColor" stroke-width="1"/>
+      <!-- Twisted rubber band -->
+      <path d="M28 18 Q30 15 32 18 Q34 21 36 18 Q38 15 40 18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="42" cy="13" r="1.5" fill="none" stroke="currentColor" stroke-width="0.75"/>
+    </svg>
+
+  </div>
+
+  <!-- Flying planes container -->
+  <div id="flyers-container"></div>
+
+  <script src="flyers.js"></script>
+</body>
 </html>

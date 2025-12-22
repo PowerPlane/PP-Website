@@ -1,309 +1,376 @@
-/* Power Plane — Handcrafted Aesthetic */
+/* ============================================
+   POWER PLANE - Datasheet / Schematic Style
+   ============================================
 
+   Easy to customize:
+   - Change colors in :root variables
+   - Adjust sizes in the "SIZING" section
+   - Mobile breakpoint at bottom
+
+   ============================================ */
+
+/* --------------------------------------------
+   VARIABLES - Change these to customize
+   -------------------------------------------- */
 :root {
-  --ink: #2c2c2c;
-  --paper: #f9f7f3;
-  --pencil: #5a5a5a;
-  --highlight: #e8dfd0;
-  --accent: #7a9e7e;
+  /* Colors */
+  --color-ink: #000;           /* Main text/lines */
+  --color-paper: #fff;         /* Background */
+  --color-muted: #666;         /* Secondary text */
+
+  /* Typography */
+  --font-main: 'JetBrains Mono', monospace;
+
+  /* Sizing */
+  --border-width: 2px;
+  --frame-padding: 2.5rem;
+  --field-gap: 0.75rem;
+
+  /* Animation */
+  --fly-duration: 35s;
+  --fly-delay: 8s;
 }
 
-* {
+
+/* --------------------------------------------
+   RESET & BASE
+   -------------------------------------------- */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-size: 18px;
+html, body {
+  height: 100%;
+  overflow: hidden;            /* No scrolling */
 }
 
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--paper);
-  color: var(--ink);
-  line-height: 1.7;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Subtle paper texture overlay */
-.paper-texture {
-  position: fixed;
-  top: 0;
-  left: 0;
+
+/* --------------------------------------------
+   DATASHEET FRAME
+   -------------------------------------------- */
+.datasheet {
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.1) 2px,
-      rgba(0,0,0,0.1) 4px
-    );
-  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
-/* Layout */
-header, main, footer {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.frame {
+  border: var(--border-width) solid var(--color-ink);
+  padding: var(--frame-padding);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
 }
 
-/* Header */
-header {
-  padding-top: 4rem;
-  padding-bottom: 3rem;
-  text-align: center;
+
+/* --------------------------------------------
+   HEADER
+   -------------------------------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
-.logo {
-  margin-bottom: 1.5rem;
+.title-block {
+  flex: 1;
 }
 
-.paper-airplane {
-  width: 120px;
-  height: 80px;
-  color: var(--ink);
-  transition: transform 0.5s ease;
-}
-
-.paper-airplane:hover {
-  transform: translateX(10px) translateY(-5px) rotate(-3deg);
-}
-
-.title {
-  font-family: 'Caveat', cursive;
-  font-size: 3.5rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+.company-name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   margin-bottom: 0.25rem;
 }
 
-.tagline {
-  font-size: 0.9rem;
-  color: var(--pencil);
-  font-style: italic;
-}
-
-/* Sections */
-section {
-  margin-bottom: 3.5rem;
-}
-
-h2 {
-  font-family: 'Caveat', cursive;
-  font-size: 2rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
+.underline {
+  height: 3px;
+  background: var(--color-ink);
   width: 100%;
-  height: 2px;
-  background: var(--ink);
-  opacity: 0.2;
-  transform: rotate(-0.5deg);
+  max-width: 200px;
 }
 
-/* Intro handwritten note */
-.intro {
-  text-align: center;
-  padding: 2rem 0;
+.logo {
+  width: 80px;
+  height: 60px;
+  flex-shrink: 0;
 }
 
-.handwritten-note {
-  font-family: 'Caveat', cursive;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  color: var(--pencil);
-  position: relative;
-  display: inline-block;
-  padding: 1rem 2rem;
+.logo svg {
+  width: 100%;
+  height: 100%;
+  color: var(--color-ink);
 }
 
-.handwritten-note::before {
-  content: '"';
-  position: absolute;
-  left: -0.5rem;
-  top: 0;
-  font-size: 3rem;
-  opacity: 0.2;
-}
 
-/* About */
-.about p {
-  margin-bottom: 1rem;
-}
-
-.about em {
-  font-style: normal;
-  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
-  padding: 0 2px;
-}
-
-/* Services */
-.service-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.service-list li {
+/* --------------------------------------------
+   FIELDS (Pinout style)
+   -------------------------------------------- */
+.fields {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  padding: 0.5rem 0;
+  flex-direction: column;
+  gap: var(--field-gap);
 }
 
-.bullet {
-  color: var(--accent);
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
+.field {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
-/* Philosophy sketch box */
-.sketch-box {
-  border: 1px dashed var(--pencil);
-  padding: 2rem;
-  position: relative;
-  background: rgba(255,255,255,0.5);
-  transform: rotate(-0.3deg);
+.label {
+  font-weight: 500;
+  min-width: 3.5rem;
+  flex-shrink: 0;
 }
 
-.sketch-box::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  right: 20px;
-  width: 40px;
-  height: 15px;
-  background: var(--highlight);
-  transform: rotate(2deg);
-  opacity: 0.8;
+.connector {
+  color: var(--color-muted);
+  flex-shrink: 0;
 }
 
-.sketch-text {
-  font-size: 0.95rem;
-  text-align: center;
-  line-height: 1.8;
+.value {
+  color: var(--color-ink);
 }
 
-.highlight {
-  font-family: 'Caveat', cursive;
-  font-size: 1.3rem;
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--ink);
+.divider {
+  height: 1px;
+  background: var(--color-ink);
+  opacity: 0.2;
+  margin: 0.5rem 0;
 }
 
-/* Contact */
-.contact {
-  text-align: center;
-  padding: 2rem 0;
-}
 
-.contact p {
-  margin-bottom: 1.5rem;
-  color: var(--pencil);
-}
-
-.email-link {
-  font-family: 'Caveat', cursive;
-  font-size: 1.8rem;
-  color: var(--ink);
+/* --------------------------------------------
+   LINKS
+   -------------------------------------------- */
+.link {
+  color: var(--color-ink);
   text-decoration: none;
-  position: relative;
-  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-ink);
+  transition: opacity 0.2s;
 }
 
-.email-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--ink);
-  transform: scaleX(0.3);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.link:hover {
+  opacity: 0.6;
 }
 
-.email-link:hover::after {
-  transform: scaleX(1);
+.separator {
+  margin: 0 0.5rem;
+  color: var(--color-muted);
 }
 
-/* Footer */
-footer {
-  padding: 3rem 2rem 2rem;
-  text-align: center;
+
+/* --------------------------------------------
+   FOOTER
+   -------------------------------------------- */
+.footer {
+  display: flex;
+  justify-content: space-between;
   margin-top: 2rem;
-}
-
-.circuit-doodle {
-  width: 200px;
-  height: 30px;
-  color: var(--pencil);
-  opacity: 0.4;
-  margin-bottom: 1rem;
-}
-
-.copyright {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-ink);
   font-size: 0.75rem;
-  color: var(--pencil);
-  opacity: 0.7;
+  color: var(--color-muted);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  html {
-    font-size: 16px;
-  }
 
-  header {
-    padding-top: 2.5rem;
-  }
+/* --------------------------------------------
+   FLYING PLANES
+   -------------------------------------------- */
+.flyer {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  width: 40px;
+  height: 24px;
+  opacity: 0;
+  color: var(--color-ink);
+  animation: fly var(--fly-duration) linear forwards;
+}
 
-  .title {
-    font-size: 2.5rem;
-  }
+/* Different flight paths */
+.flyer.path-1 {
+  animation-name: fly-diagonal-1;
+}
 
-  .handwritten-note {
-    font-size: 1.3rem;
-  }
+.flyer.path-2 {
+  animation-name: fly-diagonal-2;
+}
 
-  .sketch-box {
-    padding: 1.5rem;
+.flyer.path-3 {
+  animation-name: fly-diagonal-3;
+}
+
+/* Diagonal flight from top-left to bottom-right */
+@keyframes fly-diagonal-1 {
+  0% {
+    transform: translate(-60px, -60px) rotate(25deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.5;
+  }
+  95% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(calc(100vw + 60px), calc(100vh + 60px)) rotate(25deg);
+    opacity: 0;
   }
 }
 
-/* Subtle animation for the airplane */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+/* Diagonal flight from bottom-left to top-right */
+@keyframes fly-diagonal-2 {
+  0% {
+    transform: translate(-60px, calc(100vh + 60px)) rotate(-25deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.5;
+  }
+  95% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(calc(100vw + 60px), -60px) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+/* Horizontal flight with slight wobble */
+@keyframes fly-diagonal-3 {
+  0% {
+    transform: translate(-60px, 40vh) rotate(5deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(25vw, 35vh) rotate(8deg);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translate(50vw, 45vh) rotate(3deg);
+  }
+  75% {
+    transform: translate(75vw, 38vh) rotate(7deg);
+  }
+  95% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(calc(100vw + 60px), 42vh) rotate(5deg);
+    opacity: 0;
   }
 }
 
-.paper-airplane {
-  animation: float 4s ease-in-out infinite;
+/* Propeller spin animation */
+.flyer .propeller {
+  transform-origin: 44px 12px;
+  animation: spin 0.2s linear infinite;
 }
 
-/* Selection color */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* --------------------------------------------
+   MOBILE RESPONSIVE
+   -------------------------------------------- */
+@media (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+
+  .datasheet {
+    padding: 1rem;
+  }
+
+  .frame {
+    padding: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .title-block {
+    width: 100%;
+  }
+
+  .underline {
+    margin: 0 auto;
+  }
+
+  .company-name {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 45px;
+  }
+
+  .field {
+    flex-wrap: wrap;
+  }
+
+  .label {
+    min-width: auto;
+  }
+
+  .connector {
+    display: none;
+  }
+
+  .value {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  /* Smaller flying planes on mobile */
+  .flyer {
+    width: 30px;
+    height: 18px;
+  }
+}
+
+
+/* --------------------------------------------
+   SELECTION
+   -------------------------------------------- */
 ::selection {
-  background: var(--highlight);
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
