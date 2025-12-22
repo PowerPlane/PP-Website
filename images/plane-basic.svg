@@ -1,5 +1,0 @@
-<svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-  <!-- Simple paper airplane -->
-  <path d="M2 12 L35 8 L20 18 Z" fill="none" stroke="#000" stroke-width="1.5"/>
-  <path d="M2 12 L35 8 L18 13 L2 12" fill="none" stroke="#000" stroke-width="1.5"/>
-</svg>

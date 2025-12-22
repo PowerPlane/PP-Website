@@ -11,10 +11,10 @@
 
 var CONFIG = {
 
-  // PLANES - Add your SVG filenames here
+  // PLANES - Add image filenames here (SVG, PNG, JPG, etc.)
   // The script will randomly pick one each time
   planes: [
-    'plane-basic.svg',
+    'plane-basic.png',
     // 'plane-motor.svg',
     // 'plane-propeller.svg',
   ],
@@ -35,7 +35,7 @@ var CONFIG = {
 // LOGIC - No need to edit below
 // ============================================================
 
-(function() {
+(function () {
   'use strict';
 
   function getRandomPlane() {
@@ -62,7 +62,7 @@ var CONFIG = {
     img.setAttribute('aria-hidden', 'true');
 
     // Handle load errors gracefully
-    img.onerror = function() {
+    img.onerror = function () {
       console.warn('Flyer: Failed to load', src);
       this.remove();
     };
@@ -70,13 +70,13 @@ var CONFIG = {
     document.body.appendChild(img);
 
     // Remove after animation completes
-    setTimeout(function() {
+    setTimeout(function () {
       if (img.parentNode) img.remove();
     }, CONFIG.duration + 1000);
   }
 
   function init() {
-    setTimeout(function() {
+    setTimeout(function () {
       createPlane();
       setInterval(createPlane, CONFIG.interval);
     }, CONFIG.delay);
