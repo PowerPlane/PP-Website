@@ -1,84 +1,90 @@
 /**
  * Flying Paper Planes
  *
- * Spawns random paper plane SVGs that fly across the screen.
- * - Delayed start (8 seconds after page load)
- * - One plane at a time
- * - Random plane type and flight path
- * - New plane every 45 seconds
+ * ALL SETTINGS ARE IN THE CONFIG OBJECT BELOW
+ * No need to edit anything else in this file.
  */
+
+// ============================================================
+// CONFIG - Edit everything here
+// ============================================================
+
+var CONFIG = {
+
+  // PLANES - Add your SVG filenames here
+  // The script will randomly pick one each time
+  planes: [
+    'plane-basic.svg',
+    // 'plane-motor.svg',
+    // 'plane-propeller.svg',
+  ],
+
+  // SIZE - Width in pixels (height auto-scales)
+  size: 50,
+  mobileSize: 35,           // Smaller on mobile
+  mobileBreakpoint: 600,    // Screen width in px
+
+  // TIMING
+  delay: 3000,       // ms before first plane (3s)
+  interval: 45000,   // ms between planes (45s)
+  duration: 35000,   // ms flight time (35s) - must match CSS
+
+};
+
+// ============================================================
+// LOGIC - No need to edit below
+// ============================================================
 
 (function() {
   'use strict';
 
-  // Configuration - easy to adjust
-  var CONFIG = {
-    initialDelay: 8000,    // 8 seconds before first plane
-    interval: 45000,       // 45 seconds between planes
-    animationDuration: 35000  // 35 seconds flight time (matches CSS)
-  };
-
-  // Plane template IDs
-  var planeIds = ['plane-propeller', 'plane-motor', 'plane-rubber'];
-
-  // Flight path classes
-  var pathClasses = ['path-1', 'path-2', 'path-3'];
-
-  // Get container
-  var container = document.getElementById('flyers-container');
-
-  /**
-   * Get a random item from an array
-   */
-  function randomFrom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  function getRandomPlane() {
+    if (CONFIG.planes.length === 0) return null;
+    var index = Math.floor(Math.random() * CONFIG.planes.length);
+    return 'images/' + CONFIG.planes[index];
   }
 
-  /**
-   * Spawn a flying plane
-   */
-  function spawnPlane() {
-    // Get random plane template
-    var planeId = randomFrom(planeIds);
-    var template = document.getElementById(planeId);
+  function getSize() {
+    // Use mobile size on small screens
+    var isMobile = window.innerWidth < CONFIG.mobileBreakpoint;
+    return isMobile ? CONFIG.mobileSize : CONFIG.size;
+  }
 
-    if (!template) return;
+  function createPlane() {
+    var src = getRandomPlane();
+    if (!src) return;
 
-    // Clone the SVG
-    var plane = template.cloneNode(true);
-    plane.removeAttribute('id');
-    plane.classList.add('flyer');
-    plane.classList.add(randomFrom(pathClasses));
+    var img = document.createElement('img');
+    img.src = src;
+    img.className = 'flyer';
+    img.style.width = getSize() + 'px';
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
 
-    // Add to container
-    container.appendChild(plane);
+    // Handle load errors gracefully
+    img.onerror = function() {
+      console.warn('Flyer: Failed to load', src);
+      this.remove();
+    };
+
+    document.body.appendChild(img);
 
     // Remove after animation completes
     setTimeout(function() {
-      if (plane.parentNode) {
-        plane.parentNode.removeChild(plane);
-      }
-    }, CONFIG.animationDuration + 1000);
+      if (img.parentNode) img.remove();
+    }, CONFIG.duration + 1000);
   }
 
-  /**
-   * Start the flying planes
-   */
   function init() {
-    // First plane after initial delay
     setTimeout(function() {
-      spawnPlane();
-
-      // Then spawn planes at regular intervals
-      setInterval(spawnPlane, CONFIG.interval);
-    }, CONFIG.initialDelay);
+      createPlane();
+      setInterval(createPlane, CONFIG.interval);
+    }, CONFIG.delay);
   }
 
-  // Start when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
 })();
