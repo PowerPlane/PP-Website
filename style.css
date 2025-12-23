@@ -13,10 +13,16 @@
    VARIABLES - Change these to customize
    -------------------------------------------- */
 :root {
-  /* Colors */
-  --color-ink: #000;           /* Main text/lines */
-  --color-paper: #fff;         /* Background */
-  --color-muted: #666;         /* Secondary text */
+  /* Colors - PCB Dark Mode */
+  --color-ink: #e8e8e8;        /* Light text on dark */
+  --color-paper: #0a0a14;      /* Deep dark navy background */
+  --color-muted: #888;         /* Muted gray for dark bg */
+
+  /* PCB Accent Colors */
+  --color-red: #c41e3a;        /* Copper traces */
+  --color-gold: #d4a84b;       /* Vias/pads */
+  --color-magenta: #c850c0;    /* Component outlines */
+  --color-cyan: #4ecdc4;       /* Accent traces */
 
   /* Typography */
   --font-main: 'JetBrains Mono', monospace;
@@ -67,7 +73,7 @@ body {
 }
 
 .frame {
-  border: var(--border-width) solid var(--color-ink);
+  border: var(--border-width) solid var(--color-red);
   padding: var(--frame-padding);
   max-width: 600px;
   width: 100%;
@@ -92,14 +98,14 @@ body {
 
 .company-name {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.05em;
   margin-bottom: 0.25rem;
 }
 
 .underline {
   height: 3px;
-  background: var(--color-ink);
+  background: var(--color-red);
   width: 100%;
   max-width: 200px;
 }
@@ -149,8 +155,8 @@ body {
 
 .divider {
   height: 1px;
-  background: var(--color-ink);
-  opacity: 0.2;
+  background: var(--color-red);
+  opacity: 0.3;
   margin: 0.5rem 0;
 }
 
@@ -162,11 +168,12 @@ body {
   color: var(--color-ink);
   text-decoration: none;
   border-bottom: 1px solid var(--color-ink);
-  transition: opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .link:hover {
-  opacity: 0.6;
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
 }
 
 .separator {
@@ -183,7 +190,7 @@ body {
   justify-content: space-between;
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--color-ink);
+  border-top: 1px solid var(--color-red);
   font-size: 0.75rem;
   color: var(--color-muted);
 }
@@ -192,6 +199,7 @@ body {
 /* --------------------------------------------
    FLYING PLANE
    Size is set by JS inline style from CONFIG
+   Path is set by JS via CSS custom properties
    -------------------------------------------- */
 .flyer {
   position: fixed;
@@ -200,13 +208,13 @@ body {
   z-index: 9999;
   height: auto;
   pointer-events: none;
-  animation: fly-diagonal 35s linear forwards;
+  animation: fly-path 10s linear forwards;
 }
 
-/* Diagonal flight from top-left to bottom-right */
-@keyframes fly-diagonal {
+/* Random flight path - positions set by JS */
+@keyframes fly-path {
   0% {
-    transform: translate(-60px, -60px) rotate(25deg);
+    transform: translate(var(--start-x, -60px), var(--start-y, -60px)) rotate(var(--angle, 25deg));
     opacity: 0;
   }
   5% {
@@ -216,7 +224,7 @@ body {
     opacity: 0.8;
   }
   100% {
-    transform: translate(calc(100vw + 60px), calc(100vh + 60px)) rotate(25deg);
+    transform: translate(var(--end-x, 100vw), var(--end-y, 100vh)) rotate(var(--angle, 25deg));
     opacity: 0;
   }
 }
@@ -294,6 +302,6 @@ body {
    SELECTION
    -------------------------------------------- */
 ::selection {
-  background: var(--color-ink);
+  background: var(--color-gold);
   color: var(--color-paper);
 }
