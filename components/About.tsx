@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 sm:py-28">
+    <section id="about" className="py-8 sm:py-10">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="mb-10 flex items-center gap-4">
+        <div className="mb-4 flex items-center gap-4">
           <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-red">
             01
           </span>
@@ -37,7 +37,7 @@ export default function About() {
         </div>
 
         {/* Description paragraph */}
-        <div className="mt-8 border-l-2 border-accent-copper/40 pl-4 sm:pl-6">
+        <div className="mt-4 border-l-2 border-accent-copper/40 pl-4 sm:pl-6">
           <p className="text-sm leading-relaxed text-text-primary">
             Power Plane designs and builds custom electronic hardware and
             firmware for clients who need something that doesn&apos;t exist

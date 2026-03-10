@@ -15,10 +15,10 @@ const TEAM = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-20 sm:py-28">
+    <section id="team" className="py-8 sm:py-10">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="mb-10 flex items-center gap-4">
+        <div className="mb-4 flex items-center gap-4">
           <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-red">
             03
           </span>
@@ -55,7 +55,7 @@ export default function Team() {
               </div>
 
               {/* Card body */}
-              <div className="p-4 sm:px-6">
+              <div className="p-3 sm:px-5">
                 <p className="mb-3 text-xs leading-relaxed text-text-primary">
                   {member.bio}
                 </p>

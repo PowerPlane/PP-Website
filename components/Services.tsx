@@ -33,10 +33,10 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 sm:py-28 bg-bg-secondary/50">
+    <section id="services" className="py-8 sm:py-10 bg-bg-secondary/50">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="mb-10 flex items-center gap-4">
+        <div className="mb-4 flex items-center gap-4">
           <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-red">
             02
           </span>
@@ -48,7 +48,7 @@ export default function Services() {
         </div>
 
         {/* Service grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
             <div
               key={service.id}
@@ -63,8 +63,8 @@ export default function Services() {
               </div>
 
               {/* Component body */}
-              <div className="p-4">
-                <h3 className="mb-2 text-xs font-bold tracking-wider text-text-heading">
+              <div className="p-3">
+                <h3 className="mb-1 text-xs font-bold tracking-wider text-text-heading">
                   {service.name}
                 </h3>
                 <p className="text-[11px] leading-relaxed text-muted group-hover:text-text-primary transition-colors">

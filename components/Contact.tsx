@@ -23,10 +23,10 @@ const LINKS = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-bg-secondary/50">
+    <section id="contact" className="py-8 sm:py-10 bg-bg-secondary/50">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="mb-10 flex items-center gap-4">
+        <div className="mb-4 flex items-center gap-4">
           <span className="text-[10px] font-semibold tracking-[0.3em] text-accent-red">
             04
           </span>

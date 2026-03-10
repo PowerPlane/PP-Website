@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
@@ -13,8 +12,7 @@ export default function Home() {
       <PlaneCanvas />
       <div className="relative z-10">
         <Navbar />
-        <main>
-          <Hero />
+        <main className="pt-14">
           <About />
           <Services />
           <Team />
