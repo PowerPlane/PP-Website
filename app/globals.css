@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-primary: #0a0a1e;
+  --color-bg-secondary: #0f0f2a;
+  --color-bg-card: #12123a;
+  --color-text-primary: #d0d0d0;
+  --color-text-heading: #e8e8e8;
+  --color-accent-red: #e63946;
+  --color-accent-copper: #d4956a;
+  --color-accent-cyan: #4ecdc4;
+  --color-muted: #555577;
+  --color-border: #2a2a4a;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 3px;
+}
